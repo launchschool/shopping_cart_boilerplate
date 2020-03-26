@@ -9,6 +9,15 @@
 6. `cd` into client and run `yarn install` from the command line to install all dependencies
 6. `cd` into server and run `yarn install` from the command line to install all dependencies
 
+## DataBase Setup
+
+1. Create mongoDB account - https://account.mongodb.com/account/register
+2. Create AWS cluster
+3. Under Security tab, click Database Access, and on the right `add new database user`. After you enter username and password, click `add user` at the bottom right corner.
+4. Under Security tab, click Network Access, and whitelist your IP address.
+5. Once your cluster is created, under Clusters tab, click connect and copy the connection string which will look something like this `mongodb+srv://test123:<password>@cluster0-zamyu.mongodb.net/test?retryWrites=true&w=majority`. Instead of `test123` there will be your username, and you will need to replace `<password>` with your password.
+6. Finally, inside your project folder, `cd` into server, create new file `.env` and enter `DB=<paste the string from above here>`. It will look similar to this `DB=mongodb+srv://test123:mypass@cluster0-zamyu.mongodb.net/test?retryWrites=true&w=majority`.
+
 ## Running the app
 While in the server directory, run `npm run dev` to start the live server. The live server will watch for changes to files in the `src` directory and reload the page when they're changed.
 
