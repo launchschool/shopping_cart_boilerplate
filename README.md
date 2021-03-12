@@ -58,3 +58,36 @@ For the initial application data, you can start with the following list of produ
   }
 ]
 ```
+
+## API
+
+#### GET "/api/products"
+
+- fetches all products
+- returns an array of product objects
+
+#### POST "/api/products"
+- creates a product
+- it expects an object with a title, price and quantity
+- returns a newly created product as an object
+
+#### PUT "/api/products:id"
+- updates a product
+- it expects an object with a title, price, or quantity, or any combination of these properties
+- returns updated product
+
+#### DELETE "/api/products/:id"
+- deletes a product
+
+#### GET "/api/cart"
+
+- fetches all cart items
+- returns an array of cartItem objects
+
+#### POST "/api/cart"
+- adds a product to the cart
+- returns that cart item
+
+#### GET "/api/checkout"
+
+- removes all items from the cart
