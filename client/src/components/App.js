@@ -12,6 +12,7 @@ const App = () => {
 
   return (
     <div id="app">
+      "hello?!"
       <Header />
       <main>
         <Products products={products} />
