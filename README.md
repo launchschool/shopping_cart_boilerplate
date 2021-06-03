@@ -62,4 +62,4 @@ For the initial application data, you can start with the following list of produ
 
 ## API
 
-https://app.swaggerhub.com/apis/srki.coric/Shopping_Cart/1.0.0
+https://app.swaggerhub.com/apis-docs/srki.coric/Shopping_Cart/1.0.0
