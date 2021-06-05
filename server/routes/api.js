@@ -32,27 +32,13 @@ router.put("/products/:id", (req, res) => {
       );
     })
     .then((updatedProduct) => {
-      req.body.product = updatedProduct;
-      return CartItem.findOneAndUpdate(
-        { productId: updatedProduct._id },
-        {
-          title: updatedProduct.title,
-          price: updatedProduct.price,
-        },
-        { new: true }
-      );
-    })
-    .then((_) => {
-      res.json(req.body.product);
+      res.json(updatedProduct);
     });
 });
 
 router.delete("/products/:id", (req, res, next) => {
   const productId = req.params.id;
   Product.findByIdAndRemove(productId)
-    .then((_) => {
-      return CartItem.deleteMany({ productId });
-    })
     .then(() => {
       res.json();
     })
@@ -60,43 +46,34 @@ router.delete("/products/:id", (req, res, next) => {
 });
 
 router.post("/cart", (req, res) => {
-  const { productId, product } = req.body;
-
-  Product.findByIdAndUpdate(
+  const { productId, title, price } = req.body;
+  CartItem.findOne({
     productId,
-    {
-      quantity: product.quantity,
-    },
-    { new: true }
-  ).then((updatedProduct) => {
-    CartItem.findOne({
-      productId: productId,
+  })
+    .then((item) => {
+      if (!item) {
+        return CartItem.create({
+          title: title,
+          price: price,
+          quantity: 1,
+          productId,
+        });
+      } else {
+        return CartItem.findOneAndUpdate(
+          { productId },
+          {
+            quantity: item.quantity + 1,
+          },
+          { new: true }
+        );
+      }
     })
-      .then((item) => {
-        if (!item) {
-          return CartItem.create({
-            title: updatedProduct.title,
-            price: updatedProduct.price,
-            quantity: 1,
-            productId,
-          });
-        } else {
-          return CartItem.findOneAndUpdate(
-            { productId: updatedProduct._id },
-            {
-              quantity: item.quantity + 1,
-            },
-            { new: true }
-          );
-        }
-      })
-      .then((item) => {
-        res.json(item);
-      });
-  });
+    .then((item) => {
+      res.json(item);
+    });
 });
 
-router.get("/checkout", (req, res) => {
+router.post("/cart/checkout", (req, res) => {
   CartItem.deleteMany({}).then(() => {
     res.json();
   });
