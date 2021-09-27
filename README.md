@@ -2,12 +2,10 @@
 
 ## Setup
 1. Install [Node.js](https://nodejs.org/en/download/package-manager/) if you haven't already
-1. Install [yarn](https://yarnpkg.com/en/docs/install#mac-stable)
-3. Install the `create-react-app` package globally: `yarn global add create-react-app`
-4. Clone this repository
-5. `cd` into the downloaded directory
-6. `cd` into client and run `yarn install` from the command line to install all dependencies
-6. `cd` into server and run `yarn install` from the command line to install all dependencies
+2. Clone this repository
+3. `cd` into the downloaded directory
+4. `cd` into client and run `npm install` from the command line to install all dependencies
+5. `cd` into server and run `npm install` from the command line to install all dependencies
 
 ## DataBase Setup
 
