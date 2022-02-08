@@ -11,7 +11,7 @@
 
 1. Create mongoDB account - https://account.mongodb.com/account/register
 2. Create AWS cluster
-3. Go to `collections` and creat a new database (shopping_cart) for example
+3. Go to `collections` and create a new database (shopping_cart) for example with two collections `products` and `cartitems`. Note: If you are going to work in pairs create two databases (for example team1_shopping and team2_shopping) and each database should have two collections `products` and `cartitems`.
 4. Under Security tab, click Database Access, and on the right `add new database user`. After you enter username and password, click `add user` at the bottom right corner.
 5. Under Security tab, click Network Access, and whitelist your IP address.
 6. Once your cluster is created, under Clusters tab, click connect and copy the connection string which will look something like this `mongodb+srv://test123:<password>@cluster0-zamyu.mongodb.net/test?retryWrites=true&w=majority`. Instead of `test123` there will be your username, and you will need to replace `<password>` with your password and `test` with the database name.
@@ -58,6 +58,6 @@ For the initial application data, you can start with the following list of produ
 ]
 ```
 
-## API
+## DOCS
 
-https://app.swaggerhub.com/apis-docs/srki.coric/Shopping_Cart/1.0.0
+You can find documentation in the `docs` folder in `api.md` file.
