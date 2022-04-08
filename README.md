@@ -1,6 +1,7 @@
 # Shopping Cart App
 
 ## Setup
+
 1. Install [Node.js](https://nodejs.org/en/download/package-manager/) if you haven't already
 2. Clone this repository
 3. `cd` into the downloaded directory
@@ -18,10 +19,12 @@
 7. Finally, inside your project folder, `cd` into server, create new file `.env` and enter `DB=<paste the string from above here>`. It will look similar to this `DB=mongodb+srv://test123:mypass@cluster0-zamyu.mongodb.net/shopping_cart?retryWrites=true&w=majority`.
 
 ## Running the app
+
 While in the server directory, run `npm run dev` to start the live server. The live server will watch for changes to files in the `src` directory and reload the page when they're changed.
 
 ## Viewing Static Version of the App
-While developing the app, you can take a look at the static pages that you'll eventually convert into a dynamic application. To do so, visit `http://localhost:5000/ui` in the browser. You are also encouraged to read and reuse the markup, classes and ids used in these static files in your components. They're located in the `/server/public/ui` folder.
+
+While developing the app, you can take a look at the static pages that you'll eventually convert into a dynamic application. To do so, visit `http://localhost:5001/ui` in the browser. You are also encouraged to read and reuse the markup, classes and ids used in these static files in your components. They're located in the `/server/public/ui` folder.
 
 ## Developing the app
 
@@ -33,29 +36,29 @@ For the initial application data, you can start with the following list of produ
 [
   {
     id: 1,
-    title: 'Amazon Kindle E-reader',
+    title: "Amazon Kindle E-reader",
     quantity: 5,
-    price: 79.99
+    price: 79.99,
   },
   {
     id: 2,
-    title: 'Apple 10.5-Inch iPad Pro',
+    title: "Apple 10.5-Inch iPad Pro",
     quantity: 3,
-    price: 649.99
+    price: 649.99,
   },
   {
     id: 3,
-    title: 'Yamaha Portable Keyboard',
+    title: "Yamaha Portable Keyboard",
     quantity: 2,
-    price: 155.99
+    price: 155.99,
   },
   {
     id: 4,
-    title: 'Tinker, Tailor, Soldier, Spy - A John le Carre Novel',
+    title: "Tinker, Tailor, Soldier, Spy - A John le Carre Novel",
     quantity: 12,
-    price: 13.74
-  }
-]
+    price: 13.74,
+  },
+];
 ```
 
 ## DOCS
