@@ -5,8 +5,7 @@
 1. Install [Node.js](https://nodejs.org/en/download/package-manager/) if you haven't already
 2. Clone this repository
 3. `cd` into the downloaded directory
-4. `cd` into client and run `npm install` from the command line to install all dependencies
-5. `cd` into server and run `npm install` from the command line to install all dependencies
+4. `cd` into server and run `npm install` from the command line to install all dependencies
 
 ## DataBase Setup
 
@@ -17,10 +16,6 @@
 5. Under Security tab, click Network Access, and whitelist your IP address.
 6. Once your cluster is created, under Clusters tab, click connect and copy the connection string which will look something like this `mongodb+srv://test123:<password>@cluster0-zamyu.mongodb.net/test?retryWrites=true&w=majority`. Instead of `test123` there will be your username, and you will need to replace `<password>` with your password and `test` with the database name.
 7. Finally, inside your project folder, `cd` into server, create new file `.env` and enter `DB=<paste the string from above here>`. It will look similar to this `DB=mongodb+srv://test123:mypass@cluster0-zamyu.mongodb.net/shopping_cart?retryWrites=true&w=majority`.
-
-## Running the app
-
-While in the server directory, run `npm run dev` to start the live server. The live server will watch for changes to files in the `src` directory and reload the page when they're changed.
 
 ## Viewing Static Version of the App
 
