@@ -5,4 +5,3 @@
 1. Collections
     1. `products`
     1. `cartitems`
-    1. 
