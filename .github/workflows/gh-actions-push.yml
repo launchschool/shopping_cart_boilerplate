@@ -26,7 +26,7 @@ jobs:
           SSH_HOST: ${{ secrets.STAGING_SSH_HOST }}
       - name: Run git pull
         run: |
-          ssh staging 'cd /srv/shopping-cart; git pull'
+          ssh staging 'cd /srv/shopping_cart; git pull'
       # - name: Run npm run deploy
       #   run: |
       #     ssh staging 'cd /srv/shopping-cart; npm run deploy'
