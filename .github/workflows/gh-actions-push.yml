@@ -27,6 +27,3 @@ jobs:
       - name: Run git pull
         run: |
           ssh staging 'cd /srv/shopping_cart; git pull'
-      # - name: Run npm run deploy
-      #   run: |
-      #     ssh staging 'cd /srv/shopping-cart; npm run deploy'
