@@ -1,0 +1,181 @@
+@import url("./whitespace-reset.css");
+@import url("https://fonts.googleapis.com/css?family=Rammetto+One|Roboto+Condensed");
+
+body {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 16px;
+}
+
+#app {
+  width: 800px;
+  margin: 20px auto 20px auto;
+}
+
+main,
+header {
+  padding: 20px;
+}
+
+header {
+  background: #07575b;
+  color: #fff;
+  min-height: 200px;
+  overflow: hidden;
+  border-radius: 4px 4px 0 0;
+}
+
+header h1 {
+  font-family: "Rammetto One", cursive;
+  font-size: 26px;
+  float: left;
+}
+
+header .cart {
+  float: right;
+  overflow: hidden;
+}
+
+main {
+  background: #c4dfe6;
+}
+
+h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+header h2 {
+  text-align: center;
+}
+
+.product {
+  background: #fff;
+  padding: 14px;
+  margin: 0 0 20px 0;
+  border-radius: 4px;
+  position: relative;
+}
+
+h3 {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.product p {
+  margin-bottom: 3px;
+}
+
+.product .price {
+  color: #a83850;
+}
+
+.product .quantity.none-left {
+  color: red;
+}
+
+.product .edit-form,
+.add-form {
+  margin-top: 20px;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+}
+
+.input-group {
+  padding: 5px 0 5px 0;
+}
+
+.button {
+  padding: 5px 12px 5px;
+  background: #07575b;
+  color: #fff;
+  border-color: transparent;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: sans-serif;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.button.checkout {
+  background: #fff;
+  color: #07575b;
+}
+
+.button.disabled {
+  background: #ccc;
+  color: #fff;
+  cursor: auto;
+}
+
+.button.checkout {
+  margin-top: 20px;
+  float: right;
+}
+
+.actions {
+  margin-top: 20px;
+}
+
+.product .delete-button {
+  position: absolute;
+  box-sizing: border-box;
+  top: -8px;
+  right: -8px;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  background: red;
+  color: #fff;
+  font-size: 16px;
+  padding-left: 8px;
+  padding-top: 4px;
+  cursor: pointer;
+}
+
+form {
+  width: 400px;
+}
+
+.input-group input {
+  float: right;
+}
+
+.input-group label {
+  margin-right: 10px;
+}
+
+input[type="text"] {
+  padding: 3px 2px;
+  width: 150px;
+  height: 15px;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #07575b;
+}
+
+.add-form h3,
+.add-form form {
+  display: none;
+}
+
+.add-form.visible .add-product-button {
+  display: none;
+}
+
+.add-form.visible h3,
+.add-form.visible form {
+  display: block;
+}
+
+table td,
+th {
+  text-align: center;
+  padding: 0 10px;
+}
+
+table td.total {
+  text-align: right;
+  padding-top: 20px;
+}
