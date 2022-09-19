@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import productData from '../mockData/data';
 
-
 const Product = ({title, price, quantity }) => {
 
   const h3title = React.createElement("h3", {key: 1}, title);
