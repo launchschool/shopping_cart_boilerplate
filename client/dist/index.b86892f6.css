@@ -1,0 +1,210 @@
+@import "https://fonts.googleapis.com/css?family=Rammetto+One|Roboto+Condensed";
+ul, ol {
+  list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6, pre, code {
+  font-size: 1em;
+}
+
+ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, body, html, p, blockquote, fieldset, input, dl, dt, dd, figure, figcaption, button {
+  margin: 0;
+  padding: 0;
+}
+
+a img, :link img, :visited img, fieldset {
+  border: none;
+}
+
+address {
+  font-style: normal;
+}
+
+header, section, article, nav, footer, hgroup, details, summary, figure, main {
+  display: block;
+}
+
+mark {
+  color: inherit;
+  background: none;
+}
+
+abbr {
+  border: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+body {
+  font-family: Roboto Condensed, sans-serif;
+  font-size: 16px;
+}
+
+#app {
+  width: 800px;
+  margin: 20px auto;
+}
+
+main, header {
+  padding: 20px;
+}
+
+header {
+  color: #fff;
+  min-height: 200px;
+  background: #07575b;
+  border-radius: 4px 4px 0 0;
+  overflow: hidden;
+}
+
+header h1 {
+  float: left;
+  font-family: Rammetto One, cursive;
+  font-size: 26px;
+}
+
+header .cart {
+  float: right;
+  overflow: hidden;
+}
+
+main {
+  background: #c4dfe6;
+}
+
+h2 {
+  margin-bottom: 10px;
+  font-size: 22px;
+}
+
+header h2 {
+  text-align: center;
+}
+
+.product {
+  background: #fff;
+  border-radius: 4px;
+  margin: 0 0 20px;
+  padding: 14px;
+  position: relative;
+}
+
+h3 {
+  margin-bottom: 6px;
+  font-size: 18px;
+}
+
+.product p {
+  margin-bottom: 3px;
+}
+
+.product .price {
+  color: #a83850;
+}
+
+.product .quantity.none-left {
+  color: red;
+}
+
+.product .edit-form, .add-form {
+  border-top: 1px solid #ccc;
+  margin-top: 20px;
+  padding-top: 10px;
+}
+
+.input-group {
+  padding: 5px 0;
+}
+
+.button {
+  color: #fff;
+  cursor: pointer;
+  background: #07575b;
+  border-color: #0000;
+  border-radius: 4px;
+  padding: 5px 12px;
+  font-family: sans-serif;
+  font-size: 14px;
+  display: inline-block;
+}
+
+.button.checkout {
+  color: #07575b;
+  background: #fff;
+}
+
+.button.disabled {
+  color: #fff;
+  cursor: auto;
+  background: #ccc;
+}
+
+.button.checkout {
+  float: right;
+  margin-top: 20px;
+}
+
+.actions {
+  margin-top: 20px;
+}
+
+.product .delete-button {
+  box-sizing: border-box;
+  width: 25px;
+  height: 25px;
+  color: #fff;
+  cursor: pointer;
+  background: red;
+  border-radius: 50%;
+  padding-top: 4px;
+  padding-left: 8px;
+  font-size: 16px;
+  position: absolute;
+  top: -8px;
+  right: -8px;
+}
+
+form {
+  width: 400px;
+}
+
+.input-group input {
+  float: right;
+}
+
+.input-group label {
+  margin-right: 10px;
+}
+
+input[type="text"] {
+  width: 150px;
+  height: 15px;
+  padding: 3px 2px;
+}
+
+input[type="text"]:focus {
+  border-color: #07575b;
+  outline: none;
+}
+
+.add-form h3, .add-form form, .add-form.visible .add-product-button {
+  display: none;
+}
+
+.add-form.visible h3, .add-form.visible form {
+  display: block;
+}
+
+table td, th {
+  text-align: center;
+  padding: 0 10px;
+}
+
+table td.total {
+  text-align: right;
+  padding-top: 20px;
+}
+
+/*# sourceMappingURL=index.b86892f6.css.map */
