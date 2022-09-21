@@ -129,7 +129,7 @@ router.delete("/products/:id", (req, res, next) => {
   const productId = req.params.id;
   Product.findByIdAndRemove(productId)
     .then(() => {
-      res.json();
+      res.json({});
     })
     .catch((err) => next(err));
 });
