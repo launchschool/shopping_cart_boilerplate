@@ -52,8 +52,6 @@ const EditableProduct = ({
         },
         body: JSON.stringify({ productId: _id }),
       });
-      console.log(JSON.stringify(_id));
-      console.log(response);
       const { product: newProduct, item: newCartItem } = await response.json();
 
       setProducts(

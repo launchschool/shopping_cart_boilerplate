@@ -62,13 +62,13 @@ const App = () => {
 
   return (
     <div id="app">
-      <Cart cartItems={cartItems} />
+      <Cart cartItems={cartItems} setCartItems={setCartItems} />
       <main>
         <ProductListing
           products={products}
           setProducts={setProducts}
           onUpdateProductSubmit={handleUpdateProductSubmit}
-          cartItems = {cartItems}
+          cartItems={cartItems}
           setCartItems={setCartItems}
         />
         <AddProductForm products={products} setProducts={setProducts} />

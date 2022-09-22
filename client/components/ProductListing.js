@@ -12,7 +12,7 @@ const ProductListing = ({
       <h2>Products</h2>
       {products.map((product) => (
         <EditableProduct
-          key={product.id}
+          key={product._id}
           {...product}
           products={products}
           setProducts={setProducts}
