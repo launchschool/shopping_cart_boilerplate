@@ -77,9 +77,9 @@ const EditableProduct = ({
       <div className="product-details">
         <h3>{title}</h3>
         <p className="price">${price}</p>
-        <p className="quantity">{quantity} left in stock</p>
+        <p className={quantity > 0 ? "quantity" : "quantity none-left"}>{quantity} left in stock</p>
         <div className="actions product-actions">
-          <a onClick={handleAddToCart} className="button add-to-cart">
+          <a onClick={handleAddToCart} className={quantity > 0 ? "button add-to-cart" : "button add-to-cart disabled"}>
             Add to Cart
           </a>
           <a onClick={handleEditButtonLinkClick} className="button edit">
