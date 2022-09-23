@@ -1,15 +1,29 @@
-import { useState } from "react";
+import React, { useState, Dispatch, SetStateAction } from "react";
 
-const AddProductForm = ({ products, setProducts }) => {
-  const [formHidden, setFormHidden] = useState(true);
+type productType = {
+  _id: string, 
+  title: string, 
+  price: number, 
+  quantity: number
+}
+
+interface AddProductFormProps {
+  products: productType[],
+  setProducts: Dispatch<SetStateAction<productType[]>>
+}
+
+type State<T> = [T, Dispatch<SetStateAction<T>>];
+
+const AddProductForm = ({ products, setProducts }: AddProductFormProps ): React.FC => {
+  let [formHidden, setFormHidden] = useState(true);
   const [title, setTitle] = useState("");
-  const [price, setPrice] = useState(0);
-  const [quantity, setQuantity] = useState(0);
+  const [price, setPrice]: State<number> = useState(0);
+  const [quantity, setQuantity] : State<number>= useState(0);
 
-  const handleFormToggleVisibleClick = () => {
+  const handleFormToggleVisibleClick = () : void => {
     setFormHidden(!formHidden);
   };
-
+  formHidden=3;
   const handleAddProductClick = async () => {
     try {
       const newProduct = { title, price, quantity }
@@ -69,3 +83,5 @@ const AddProductForm = ({ products, setProducts }) => {
 };
 
 export default AddProductForm;
+
+

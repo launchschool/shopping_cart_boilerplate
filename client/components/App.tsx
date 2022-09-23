@@ -1,11 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import ProductListing from "./ProductListing";
 import AddProductForm from "./AddProductForm";
 import Cart from "./Cart";
 
-const App = () => {
-  const [products, setProducts] = useState([]);
-  const [cartItems, setCartItems] = useState([]);
+interface productType {
+  _id: string, 
+  title: string, 
+  price: number, 
+  quantity: number
+}
+
+interface cartItems extends productType {
+  productID: string
+}
+
+type State<T> = [T, Dispatch<SetStateAction<T>>];
+
+const App = () : React.FC => {
+  const [products, setProducts]: State<productType[]>= useState([]);
+  const [cartItems, setCartItems]: State<cartItems[]> = useState([]);
 
   useEffect(() => {
     const getAndSetProducts = async () => {
