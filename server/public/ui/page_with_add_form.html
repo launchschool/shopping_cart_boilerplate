@@ -15,75 +15,91 @@
         <h2>Your Cart</h2>
         <p>Your cart is empty</p>
         <p>Total: $0</p>
-        <a class="button checkout disabled">Checkout</a>
+        <button class="checkout" disabled>Checkout</button>
       </div>
     </header>
 
     <main>
       <div class="product-listing">
         <h2>Products</h2>
-        <div class="product">
-          <div class="product-details">
-            <h3>Amazon Kindle E-reader</h3>
-            <p class="price">$79.99</p>
-            <p class="quantity">5 left in stock</p>
-            <div class="actions product-actions">
-              <a class="button add-to-cart">Add to Cart</a>
-              <a class="button edit">Edit</a>
+        <ul class="product-list">
+          <li class="product">
+            <div class="product-details">
+              <h3>Amazon Kindle E-reader</h3>
+              <p class="price">$79.99</p>
+              <p class="quantity">5 left in stock</p>
+              <div class="actions product-actions">
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="edit">Edit</button>
+              </div>
+              <button class="delete-button"><span>X</span></button>
             </div>
-            <a class="delete-button"><span>X</span></a>
-          </div>
-        </div>
+          </li>
 
-        <div class="product">
-          <div class="product-details">
-            <h3>Apple 10.5-Inch iPad Pro</h3>
-            <p class="price">$649.99</p>
-            <p class="quantity">2 left in stock</p>
-            <div class="actions product-actions">
-              <a class="button add-to-cart">Add to Cart</a>
-              <a class="button edit">Edit</a>
+          <li class="product">
+            <div class="product-details">
+              <h3>Apple 10.5-Inch iPad Pro</h3>
+              <p class="price">$649.99</p>
+              <p class="quantity">2 left in stock</p>
+              <div class="actions product-actions">
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="edit">Edit</button>
+              </div>
+              <button class="delete-button"><span>X</span></button>
             </div>
-            <a class="delete-button"><span>X</span></a>
-          </div>
-        </div>
+          </li>
 
-        <div class="product">
-          <div class="product-details">
-            <h3>Yamaha Portable Keyboard</h3>
-            <p class="price">$155.99</p>
-            <p class="quantity">0 left in stock</p>
-            <div class="actions product-actions">
-              <a class="button add-to-cart disabled">Add to Cart</a>
-              <a class="button edit">Edit</a>
+          <li class="product">
+            <div class="product-details">
+              <h3>Yamaha Portable Keyboard</h3>
+              <p class="price">$155.99</p>
+              <p class="quantity">0 left in stock</p>
+              <div class="actions product-actions">
+                <button class="add-to-cart" disabled>Add to Cart</button>
+                <button class="edit">Edit</button>
+              </div>
+              <button class="delete-button"><span>X</span></button>
             </div>
-            <a class="delete-button"><span>X</span></a>
-          </div>
-        </div>
+          </li>
+        </ul>
       </div>
-
       <div class="add-form visible">
-        <p><a class="button add-product-button">Add A Product</a></p>
+        <p><button class="add-product-button">Add A Product</button></p>
         <h3>Add Product</h3>
         <form>
           <div class="input-group">
-            <label for="product-name">Product Name</label>
-            <input type="text" id="product-name" value="">
+            <label for="product-name">Product Name:</label>
+            <input
+              type="text"
+              id="product-name"
+              name="product-name"
+              required
+            />
           </div>
-
           <div class="input-group">
-            <label for="product-price">Price</label>
-            <input type="text" id="product-price" value="">
+            <label for="product-price">Price:</label>
+            <input
+              type="number"
+              id="product-price"
+              name="product-price"
+              min="0"
+              step="0.01"
+              required
+            />
           </div>
-
           <div class="input-group">
-            <label for="product-quantity">Quantity</label>
-            <input type="text" id="product-quantity" value="">
+            <label for="product-quantity">Quantity:</label>
+            <input
+              type="number"
+              id="product-quantity"
+              name="product-quantity"
+              min="0"
+              required
+            />
           </div>
-
           <div class="actions form-actions">
-            <a class="button">Add</a>
-            <a class="button">Cancel</a>
+            <button type="submit">Add</button>
+            <button type="button">Cancel</button>
           </div>
         </form>
       </div>
