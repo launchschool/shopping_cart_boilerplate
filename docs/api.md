@@ -211,7 +211,7 @@ Adds the item to the cart (reduces the quantity in shop and adds it to the cart 
 
 ### 1.7.1. Expected Payload
 
-`productId`
+`{productId: productId}`
 
 ### 1.7.2. Successful Response
 
