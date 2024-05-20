@@ -168,7 +168,15 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
-.add-form h3,
+.add-form h3 {
+  display: block;
+}
+
+.add-product-button {
+  display: block;
+}
+
+/* .add-form h3,
 .add-form form {
   display: none;
 }
@@ -180,7 +188,7 @@ input[type="number"] {
 .add-form.visible h3,
 .add-form.visible form {
   display: block;
-}
+} */
 
 table td,
 th {
