@@ -1,4 +1,4 @@
-export default [
+const mockData = [
   {
     id: 1,
     title: "Amazon Kindle E-reader",
@@ -24,3 +24,5 @@ export default [
     price: 13.74
   }
 ];
+
+export default mockData;
