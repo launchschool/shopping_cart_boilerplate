@@ -1,4 +1,4 @@
-import type {CartItem} from "../types/Product";
+import type {CartItem} from "../types/CartItem";
 
 interface ShoppingCartProps {
   cartItems: CartItem[];
@@ -8,11 +8,9 @@ const ShoppingCart = ({cartItems}: ShoppingCartProps) => {
   return (
     <div className="cart">
       <h2>Your Cart</h2>
-      {cartItems.length == 0
+      {cartItems.length === 0
       ? (<>
         <p>Your cart is empty</p>
-        <p>Total: $0</p>
-        <button className="checkout" disabled>Checkout</button>
         </>)
       : (<>
         <table>
@@ -33,11 +31,11 @@ const ShoppingCart = ({cartItems}: ShoppingCartProps) => {
             ))}
           </tbody>
         </table>
+        </>)}
         <p>Total: ${cartItems.reduce((total, cartItem) =>
           (total + cartItem.price * cartItem.quantity), 0)}
         </p>
-        <button className="checkout">Checkout</button>
-        </>)}
+        <button className="checkout" disabled={cartItems.length === 0}>Checkout</button>
     </div>
   );
 }

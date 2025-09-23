@@ -4,7 +4,3 @@ export interface Product {
   quantity: number;
   price: number;
 }
-
-export interface CartItem extends Product{
-  productId: string;
-}
