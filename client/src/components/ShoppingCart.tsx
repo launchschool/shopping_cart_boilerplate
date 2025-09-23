@@ -13,29 +13,34 @@ const ShoppingCart = ({cartItems}: ShoppingCartProps) => {
         <p>Your cart is empty</p>
         </>)
       : (<>
-        <table>
-          <thead>
-            <tr>
-              <th scope="col">Item</th>
-              <th scope="col">Quantity</th>
-              <th scope="col">Price</th>
+      <table className="cart-items">
+        <thead>
+          <tr>
+            <th scope="col">Item</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          {cartItems.map(cartItem => (
+            <tr key={cartItem._id}>
+              <td>{cartItem.title}</td>
+              <td>{cartItem.quantity}</td>
+              <td>${cartItem.price}</td>
             </tr>
-          </thead>
-          <tbody>
-            {cartItems.map(cartItem => (
-              <tr key={cartItem._id}>
-                <td>{cartItem.title}</td>
-                <td>{cartItem.quantity}</td>
-                <td>${cartItem.price}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-        </>)}
-        <p>Total: ${cartItems.reduce((total, cartItem) =>
-          (total + cartItem.price * cartItem.quantity), 0)}
-        </p>
+          ))}
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colSpan={3} className="total">Total: ${cartItems.reduce((total, cartItem) => 
+              (total + cartItem.price * cartItem.quantity), 0)}</td>
+          </tr>
+        </tfoot>
+      </table>
+      </>)}
+      <div className="checkout-button">
         <button className="checkout" disabled={cartItems.length === 0}>Checkout</button>
+      </div>
     </div>
   );
 }
