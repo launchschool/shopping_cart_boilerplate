@@ -1,4 +1,4 @@
-import type {Product as ProductType} from "../types/Product";
+import type {Product as ProductType} from "../types";
 
 interface ProductProps {
   product: ProductType;

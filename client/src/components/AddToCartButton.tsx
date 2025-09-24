@@ -1,12 +1,23 @@
-import type {Product} from "../types/Product";
+import { addCartItem } from "../services/cart";
+import type {Product} from "../types";
 
 interface AddToCartButtonProps {
   product: Product;
+  fetchCartItems: () => Promise<void>;
 }
 
-const AddToCartButton = ({product}: AddToCartButtonProps) => {
+const AddToCartButton = ({product, fetchCartItems}: AddToCartButtonProps) => {
+  const handleClick = async () => {
+    try {
+      await addCartItem(product._id);
+      await fetchCartItems();
+    } catch (error: unknown) {
+      console.log(error);
+    }
+  }
+
   return (
-    <button className="add-to-cart" disabled={product.quantity === 0}>Add to Cart</button>
+    <button className="add-to-cart" disabled={product.quantity === 0} onClick={handleClick}>Add to Cart</button>
   );
 }
 

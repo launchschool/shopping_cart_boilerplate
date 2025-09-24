@@ -1,20 +1,37 @@
 import React from "react";
 import './App.css';
-import { mockCart, mockProducts } from './mockData/data';
-import type {Product} from "./types/Product";
-import type {CartItem} from "./types/CartItem";
+import type { Product, CartItem } from "./types";
 import ShoppingCart from './components/ShoppingCart';
 import ProductList from "./components/ProductList";
 import ToggleableAddForm from "./components/ToggleableAddForm";
+import { getCartItems, getProducts } from "./services/cart";
 
 function App() {
   const [cart, setCart] = React.useState<CartItem[]>([]);
   const [productList, setProductList] = React.useState<Product[]>([]);
 
   React.useEffect(() => {
-    setCart(mockCart);
-    setProductList(mockProducts);
+    fetchProductList();
+    fetchCartItems();
   }, [])
+
+  const fetchProductList = async (): Promise<void> => {
+    try {
+      const {data} = await getProducts();
+      setProductList(data);
+    } catch (error: unknown) {
+      console.log(error);
+    }
+  }
+
+  const fetchCartItems = async (): Promise<void> => {
+    try {
+      const {data} = await getCartItems();
+      setCart(data);
+    } catch (error: unknown) {
+      console.log(error);
+    }
+  }
 
   return (
     <div id="app">
@@ -24,8 +41,8 @@ function App() {
       </header>
 
       <main>
-        <ProductList products={productList}/>
-        <ToggleableAddForm />
+        <ProductList products={productList} fetchProductList={fetchProductList} fetchCartItems={fetchCartItems}/>
+        <ToggleableAddForm fetchProductList={fetchProductList}/>
       </main>
     </div>
   )
