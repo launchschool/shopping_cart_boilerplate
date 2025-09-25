@@ -3,9 +3,10 @@ import CheckoutButton from "./CheckoutButton";
 
 interface ShoppingCartProps {
   cartItems: CartItem[];
+  fetchCartItems: () => Promise<void>;
 }
 
-const ShoppingCart = ({cartItems}: ShoppingCartProps) => {
+const ShoppingCart = ({cartItems, fetchCartItems}: ShoppingCartProps) => {
   return (
     <div className="cart">
       <h2>Your Cart</h2>
@@ -39,7 +40,7 @@ const ShoppingCart = ({cartItems}: ShoppingCartProps) => {
         </tfoot>
       </table>
       </>)}
-      <CheckoutButton cartItemsLength={cartItems.length} />
+      <CheckoutButton cartItemsLength={cartItems.length} fetchCartItems={fetchCartItems}/>
     </div>
   );
 }

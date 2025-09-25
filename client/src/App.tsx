@@ -3,7 +3,7 @@ import './App.css';
 import type { Product, CartItem } from "./types";
 import ShoppingCart from './components/ShoppingCart';
 import ProductList from "./components/ProductList";
-import ToggleableAddForm from "./components/ToggleableAddForm";
+import ToggleableAddProductForm from "./components/ToggleableAddProductForm";
 import { getCartItems, getProducts } from "./services/cart";
 
 function App() {
@@ -37,12 +37,12 @@ function App() {
     <div id="app">
       <header>
         <h1>The Shop!</h1>
-        <ShoppingCart cartItems={cart}/>
+        <ShoppingCart cartItems={cart} fetchCartItems={fetchCartItems}/>
       </header>
 
       <main>
         <ProductList products={productList} fetchProductList={fetchProductList} fetchCartItems={fetchCartItems}/>
-        <ToggleableAddForm fetchProductList={fetchProductList}/>
+        <ToggleableAddProductForm fetchProductList={fetchProductList}/>
       </main>
     </div>
   )

@@ -2,13 +2,13 @@ import React from "react";
 import AddProductForm from "./AddProductForm";
 import AddProductButton from "./AddProductButton";
 import { addProduct } from "../services/cart";
-import type { NewProduct } from "../types/"
+import type { NewProduct } from "../types"
 
-interface ToggleableAddFormProps {
+interface ToggleableAddFormProductProps {
   fetchProductList: () => Promise<void>;
 }
 
-const ToggleableAddForm = ({fetchProductList}: ToggleableAddFormProps) => {
+const ToggleableAddProductForm = ({fetchProductList}: ToggleableAddFormProductProps) => {
   const [isClickedAddForm, setIsClickedAddForm] = React.useState<boolean>(false);
 
   const handleAddProductForm = async (product: NewProduct) => {
@@ -29,4 +29,4 @@ const ToggleableAddForm = ({fetchProductList}: ToggleableAddFormProps) => {
   )
 }
 
-export default ToggleableAddForm;
+export default ToggleableAddProductForm;
