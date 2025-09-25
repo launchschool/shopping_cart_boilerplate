@@ -37,7 +37,7 @@ function App() {
     <div id="app">
       <header>
         <h1>The Shop!</h1>
-        <ShoppingCart cartItems={cart} fetchCartItems={fetchCartItems}/>
+        <ShoppingCart cartItems={cart} setCart={setCart}/>
       </header>
 
       <main>

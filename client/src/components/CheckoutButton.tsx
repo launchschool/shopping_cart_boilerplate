@@ -1,15 +1,16 @@
 import { checkout } from "../services/cart";
+import type {CartItem} from "../types";
 
 interface CheckoutButtonProps {
   cartItemsLength: number;
-  fetchCartItems: () => Promise<void>;
+  setCart: React.Dispatch<React.SetStateAction<CartItem[]>>;
 }
 
-const CheckoutButton = ({cartItemsLength, fetchCartItems}: CheckoutButtonProps) => {
+const CheckoutButton = ({cartItemsLength, setCart}: CheckoutButtonProps) => {
   const handleClick = async () => {
     try {
       await checkout();
-      await fetchCartItems();
+      setCart([]);
     } catch (error: unknown) {
       console.log(error);
     }
