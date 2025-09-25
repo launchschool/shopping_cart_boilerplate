@@ -1,13 +1,14 @@
 import React from "react";
-import type { NewProduct } from "../types/";
+import type { Product } from "../types/";
+import { addProduct } from "../services/cart";
 
 interface AddProductFormProps {
   setIsClickedAddForm: React.Dispatch<React.SetStateAction<boolean>>;
-  onAddProductForm: (product: NewProduct) => void;
+  setProductList: React.Dispatch<React.SetStateAction<Product[]>>;
 }
 
 
-const AddProductForm = ({setIsClickedAddForm, onAddProductForm}: AddProductFormProps) => {
+const AddProductForm = ({setIsClickedAddForm, setProductList}: AddProductFormProps) => {
   const emptyProduct = {
     title: "",
     quantity: -1,
@@ -18,12 +19,14 @@ const AddProductForm = ({setIsClickedAddForm, onAddProductForm}: AddProductFormP
   const handleSubmit = async (event: React.SyntheticEvent) => {
     event.preventDefault();
     try {
-      await onAddProductForm(values);
+      const newProduct = await addProduct(values);
       setValues(emptyProduct);
+      setProductList(previousProductList => {
+        return previousProductList.concat(newProduct);
+      })
     } catch (error: unknown) {
       console.log(error)
-    }
-    
+    } 
   }
 
   return (

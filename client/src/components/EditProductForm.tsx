@@ -5,19 +5,29 @@ import { updateProduct } from "../services/cart";
 interface EditProductFormProps {
   product: ProductType;
   setIsClickedEditForm: React.Dispatch<React.SetStateAction<boolean>>;
-  fetchProductList: () => Promise<void>;
+  setProductList: React.Dispatch<React.SetStateAction<ProductType[]>>;
 }
 
 
-const EditProductForm = ({product, setIsClickedEditForm, fetchProductList}: EditProductFormProps) => {
+const EditProductForm = ({product, setIsClickedEditForm, setProductList}: EditProductFormProps) => {
   const [values, setValues] = React.useState(product);
 
   const handleSubmit = async (event: React.SyntheticEvent) => {
     event.preventDefault();
     const {_id, ...newProduct} = values;
-    await updateProduct(_id, newProduct);
-    setIsClickedEditForm(false);
-    await fetchProductList();
+    try {
+      const updatedProduct = await updateProduct(_id, newProduct);
+      setIsClickedEditForm(false);
+      setProductList(previousProductList => {
+        return previousProductList.map(previousProduct => {
+          return previousProduct._id === _id
+          ? updatedProduct
+          : previousProduct
+        });
+      });
+    } catch (error: unknown) {
+      console.log(error);
+    }
   }
 
   return (

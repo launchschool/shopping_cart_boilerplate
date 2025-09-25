@@ -5,16 +5,16 @@ import EditProductButton from "./EditProductButton";
 
 interface ProductProps {
   product: ProductType;
-  fetchProductList: () => Promise<void>;
+  setProductList: React.Dispatch<React.SetStateAction<ProductType[]>>;
 }
 
-const ToggleableEditForm = ({product, fetchProductList}: ProductProps) => {
+const ToggleableEditForm = ({product, setProductList}: ProductProps) => {
   const [isClickedEditForm, setIsClickedEditForm] = React.useState<boolean>(false);
   
   return (
     <>
       {isClickedEditForm
-      ? <EditProductForm product={product} setIsClickedEditForm={setIsClickedEditForm} fetchProductList={fetchProductList}/>
+      ? <EditProductForm product={product} setIsClickedEditForm={setIsClickedEditForm} setProductList={setProductList}/>
       : <EditProductButton setIsClickedEditForm={setIsClickedEditForm} />
       }
     </>

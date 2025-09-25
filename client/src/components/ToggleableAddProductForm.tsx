@@ -1,29 +1,19 @@
 import React from "react";
 import AddProductForm from "./AddProductForm";
 import AddProductButton from "./AddProductButton";
-import { addProduct } from "../services/cart";
-import type { NewProduct } from "../types"
+import type { Product } from "../types"
 
 interface ToggleableAddFormProductProps {
-  fetchProductList: () => Promise<void>;
+  setProductList: React.Dispatch<React.SetStateAction<Product[]>>;
 }
 
-const ToggleableAddProductForm = ({fetchProductList}: ToggleableAddFormProductProps) => {
+const ToggleableAddProductForm = ({setProductList}: ToggleableAddFormProductProps) => {
   const [isClickedAddForm, setIsClickedAddForm] = React.useState<boolean>(false);
-
-  const handleAddProductForm = async (product: NewProduct) => {
-    try {
-      await addProduct(product);
-      await fetchProductList();
-    } catch (error: unknown) {
-      console.log(error);
-    }
-  }
 
   return (
     <>
       {isClickedAddForm 
-      ? <AddProductForm setIsClickedAddForm={setIsClickedAddForm} onAddProductForm={handleAddProductForm}/>
+      ? <AddProductForm setIsClickedAddForm={setIsClickedAddForm} setProductList={setProductList}/>
       : <AddProductButton setIsClickedAddForm={setIsClickedAddForm} />}
     </>
   )

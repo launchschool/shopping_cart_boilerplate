@@ -1,13 +1,13 @@
 import { z } from "zod";
 
-const productSchema = z.object({
+export const productSchema = z.object({
   _id: z.string(),
   title: z.string(),
   quantity: z.number(),
   price: z.number(),
 });
 
-const cartItemSchema = productSchema.extend({
+export const cartItemSchema = productSchema.extend({
   productId: z.string(),
 })
 

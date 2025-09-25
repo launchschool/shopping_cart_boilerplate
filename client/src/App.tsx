@@ -41,8 +41,8 @@ function App() {
       </header>
 
       <main>
-        <ProductList products={productList} fetchProductList={fetchProductList} fetchCartItems={fetchCartItems}/>
-        <ToggleableAddProductForm fetchProductList={fetchProductList}/>
+        <ProductList products={productList} setProductList={setProductList} setCart={setCart}/>
+        <ToggleableAddProductForm setProductList={setProductList}/>
       </main>
     </div>
   )

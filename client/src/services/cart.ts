@@ -1,16 +1,24 @@
 import axios from "axios";
-import type { NewProduct } from "../types/"
+import { productSchema, cartItemSchema, type NewProduct } from "../types/"
+import { z } from "zod";
+
+const addCartItemResponseSchema = z.object({
+  product: productSchema,
+  item: cartItemSchema
+})
 
 export const getProducts = async () => {
   return await axios.get("/api/products");
 }
 
 export const addProduct = async (product: NewProduct) => {
-  return await axios.post("/api/products", product);
+  const { data } = await axios.post("/api/products", product);
+  return productSchema.parse(data);
 }
 
 export const updateProduct = async (id: string, product: NewProduct) => {
-  return await axios.put(`/api/products/${id}`, product);
+  const { data } = await axios.put(`/api/products/${id}`, product);
+  return productSchema.parse(data);
 }
 
 export const deleteProduct = async (id: string) => {
@@ -26,5 +34,6 @@ export const checkout = async () => {
 }
 
 export const addCartItem = async ({productId: productId}: {productId: string}) => {
-  return await axios.post("/api/add-to-cart", {productId});
+  const { data } = await axios.post("/api/add-to-cart", {productId});
+  return addCartItemResponseSchema.parse(data);
 }
