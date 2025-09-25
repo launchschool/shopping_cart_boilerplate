@@ -13,7 +13,7 @@ function App() {
   React.useEffect(() => {
     fetchProductList();
     fetchCartItems();
-  }, [])
+  }, [cart, productList])
 
   const fetchProductList = async (): Promise<void> => {
     try {

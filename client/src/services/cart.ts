@@ -21,10 +21,10 @@ export const getCartItems = async () => {
   return await axios.get("/api/cart");
 }
 
-export const deleteCartItems = async () => {
+export const checkout = async () => {
   return await axios.post("/api/checkout");
 }
 
-export const addCartItem = async (id: string) => {
-  return await axios.post("/api/add-to-cart", id);
+export const addCartItem = async ({productId: productId}: {productId: string}) => {
+  return await axios.post("/api/add-to-cart", {productId});
 }

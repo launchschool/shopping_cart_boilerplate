@@ -9,8 +9,9 @@ interface AddToCartButtonProps {
 const AddToCartButton = ({product, fetchCartItems}: AddToCartButtonProps) => {
   const handleClick = async () => {
     try {
-      await addCartItem(product._id);
-      await fetchCartItems();
+      await addCartItem({productId: product._id});
+      // Why is this line not needed?
+      // await fetchCartItems();
     } catch (error: unknown) {
       console.log(error);
     }

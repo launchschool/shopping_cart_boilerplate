@@ -1,4 +1,5 @@
 import type {CartItem} from "../types";
+import CheckoutButton from "./CheckoutButton";
 
 interface ShoppingCartProps {
   cartItems: CartItem[];
@@ -38,9 +39,7 @@ const ShoppingCart = ({cartItems}: ShoppingCartProps) => {
         </tfoot>
       </table>
       </>)}
-      <div className="checkout-button">
-        <button className="checkout" disabled={cartItems.length === 0}>Checkout</button>
-      </div>
+      <CheckoutButton cartItemsLength={cartItems.length} />
     </div>
   );
 }
